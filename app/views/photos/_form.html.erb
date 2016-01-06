@@ -11,11 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :caption %><br>
-    <%= f.text_field :caption %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="field form-group">
+      <%= f.label :caption %><br>
+      <%= f.text_field :caption, class: "form-control" %>
+    </div>
+    <div class="actions form-group">
+      <%= f.submit "Post", class: "btn btn-primary btn-small" %>
+    </div>
+  </div> <!-- panel-body -->
+</div> <!-- panel -->
 <% end %>
