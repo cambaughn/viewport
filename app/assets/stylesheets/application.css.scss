@@ -18,3 +18,27 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#main_content {
+	#content {
+		float: none;
+	}
+	padding-bottom: 100px;
+}
+
+#photos {
+	margin: 5px;
+	width: 500px;
+	margin: 0 auto;
+}
+
+#photos img {
+	width: 100%;
+}
+
+/* .wide_img {
+	width: 100%;
+	height: auto;
+}
+*/
