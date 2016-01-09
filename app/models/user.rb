@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   has_many :photos
 
   
+  acts_as_followable
 
+  acts_as_follower
+
+  acts_as_liker
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106235400) do
+ActiveRecord::Schema.define(version: 20160109083806) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "caption"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160106235400) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "likers_count"
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"
@@ -40,6 +41,9 @@ ActiveRecord::Schema.define(version: 20160106235400) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "followers_count"
+    t.integer  "followees_count"
+    t.integer  "likees_count"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
