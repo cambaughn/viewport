@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<div>
+	<% @user.photos.each do |photo| %>
+		<%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
+	    <h4><%= photo.caption %></h4>
+    <% end %>
+</div>
