@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :photos
-  resources :users
+
+  resources :photos do
+    post 'like',   to: 'socializations#like'
+    post 'unlike', to: 'socializations#unlike'
+  end
+
+  resources :users do
+    post 'follow',   to: 'socializations#follow'
+    post 'unfollow', to: 'socializations#unfollow'
+  end
 
   root "photos#index"
 

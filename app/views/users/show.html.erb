@@ -1,5 +1,8 @@
 <h1><%= @user.name %></h1>
 <div>
+	
+	<%= link_to "Follow", user_follow_path(@user), method: :post, class: "btn btn-default btn-sm" %>
+
 	<% @user.photos.each do |photo| %>
 		<%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
 	    <h4><%= photo.caption %></h4>
