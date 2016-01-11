@@ -6,6 +6,7 @@
         <h4><%= photo.caption %></h4>
         <p>Posted by <%= photo.user.name %></p>
         <%= link_to 'Show', photo %>
+        <%= link_to "Like", photo_like_path(photo), method: :post, class: "btn btn-default btn-sm" %>
 
         <% if photo.user == current_user %>
           <%= link_to 'Edit', edit_photo_path(photo) %></td>
