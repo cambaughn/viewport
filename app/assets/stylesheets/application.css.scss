@@ -15,9 +15,35 @@
  */
 
 
+@import url(https://fonts.googleapis.com/css?family=Pacifico|Dancing+Script|Cookie|Yesteryear|Lato);
+
+
+
+$navbar-default-bg:		transparent;
+
+$navbar-default-brand-color: 	#c0392b;
+
+$brand-primary:     #c0392b;
+
+$btn-primary-color: 	white;
+$btn-primary-bg: 	#c0392b;
+
+
+$font-family-sans-serif: 	'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar-brand {
+	font-family: 		'Yesteryear';
+	font-size: 			3em;
+}
 
 
 #main_content {

@@ -4,9 +4,14 @@
       <div class="box">
         <%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
         <h4><%= photo.caption %></h4>
-        <p>Posted by <%= photo.user.name %></p>
+        <p>Posted <%= time_ago_in_words(photo.created_at) %> ago by <strong><%= link_to photo.user.name, user_path(photo.user) %></strong></p>
+        <p><%= photo.likers_count %> Likes</p>
         <%= link_to 'Show', photo %>
-        <%= link_to "Like", photo_like_path(photo), method: :post, class: "btn btn-default btn-sm" %>
+        <% unless photo.liked_by?(current_user) %>
+          <%= link_to "Like", photo_like_path(photo), method: :post, class: "btn btn-default btn-sm" %>
+        <% else %>
+          <%= link_to "Unlike", photo_unlike_path(photo), method: :post, class: "btn btn-default btn-sm" %>
+        <% end %>
 
         <% if photo.user == current_user %>
           <%= link_to 'Edit', edit_photo_path(photo) %></td>

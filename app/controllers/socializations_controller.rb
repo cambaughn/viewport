@@ -9,7 +9,7 @@ class SocializationsController < ApplicationController
 
   def unfollow
     current_user.unfollow!(@socializable)
-    render json: { follow: false }
+    redirect_to :back
   end
 
   def like
@@ -19,7 +19,10 @@ class SocializationsController < ApplicationController
 
   def unlike
   	current_user.unlike!(@socializable)
+  	redirect_to :back
   end
+
+ 
 
 private
   def load_socializable
