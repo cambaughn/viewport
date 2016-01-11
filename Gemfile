@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'paperclip', '~> 4.3'
 
 gem 'socialization', '~> 1.2'
+gem 'public_activity', '~> 1.4'
 
 
 group :development, :test do
