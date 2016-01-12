@@ -1,11 +1,18 @@
-  
+
   <div id="photos">
     <% @photos.each do |photo| %>
       <div class="box">
         <%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
         <h4><%= photo.caption %></h4>
         <p>Posted <%= time_ago_in_words(photo.created_at) %> ago by <strong><%= link_to photo.user.name, user_path(photo.user) %></strong></p>
-        <p><%= photo.likers_count %> Likes</p>
+        <p>
+          <% if photo.likers_count.nil? %> 
+            <span> 0 </span>
+          <% else %>
+            <%= photo.likers_count %>
+          <% end %>
+
+          Likes</p>
         <%= link_to 'Show', photo %>
         <% unless photo.liked_by?(current_user) %>
           <%= link_to "Like", photo_like_path(photo), method: :post, class: "btn btn-default btn-sm" %>
