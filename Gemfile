@@ -14,7 +14,6 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'paperclip', '~> 4.3'
 
 gem 'socialization', '~> 1.2'
-gem 'rails-simple-search', '~> 0.9.9'
 
 
 group :development, :test do
