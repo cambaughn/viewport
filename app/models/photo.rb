@@ -7,5 +7,5 @@ class Photo < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	acts_as_likeable
-	
+
 end

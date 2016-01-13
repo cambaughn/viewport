@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all.order("created_at DESC")
+      @photos = Photo.where(user_id: current_user.followees(User).map(&:id))
   end
 
   # GET /photos/1
