@@ -14,7 +14,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'paperclip', '~> 4.3'
 
 gem 'socialization', '~> 1.2'
-
+gem 'searchkick', '~> 1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

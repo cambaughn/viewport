@@ -10,9 +10,14 @@ Rails.application.routes.draw do
   resources :users do
     post 'follow',   to: 'socializations#follow'
     post 'unfollow', to: 'socializations#unfollow'
+
+    collection do 
+      get 'search'
+    end
   end
 
   root "photos#index"
+  get "home" => "pages#home"
 
 
 
