@@ -66,18 +66,13 @@ $jumbotron-bg:		transparent;
 
 #user-photos {
 	width: auto;
-
+	margin: 0 auto;
 }
 
 #user-photos img {
-	height: 80vh;
+	height: 650px;
 }
 
-.center-block {
-	display: block;
- 	margin-left: auto;
- 	margin-right: auto;
-}
 
 
 .photo-panel {

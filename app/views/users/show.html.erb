@@ -1,5 +1,5 @@
 <h1 class="text-center"><%= @user.name %></h1>
-<div class="center-block clearfix">
+
 	<% unless current_user == @user %>
 		<% if current_user.follows?(@user) == false %>
 			<%= link_to "Follow", user_follow_path(@user), method: :post, class: "btn btn-default btn-sm" %>
@@ -7,16 +7,25 @@
 			<%= link_to "Unfollow", user_unfollow_path(@user), method: :post, class: "btn btn-default btn-sm" %>
 		<% end %>
 	<% end %>
-	<div></div>
-	<div id="user-photos", class="col-md-4">
-		<div class="panel panel-default">
-			<% @user.photos.each do |photo| %>
-				<%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
-				<div class="panel-body">
-			    	<h4><%= photo.caption %></h4>
-			    	<p>Posted <%= time_ago_in_words(photo.created_at) %> ago</p>
-				</div>
-		    <% end %>
-		</div>
-	</div>
-</div>
+	<div id="center">
+		<div id="user-photos", class="col-md-4 col-md-offest-4">
+			<div class="panel panel-default">
+				<% @user.photos.each do |photo| %>
+					<%= image_tag photo.image.url %>
+					<div class="panel-body">
+				    	<h4><%= photo.caption %></h4>
+				    	<p>Posted <%= time_ago_in_words(photo.created_at) %> ago</p>
+					</div>
+
+					<% if photo.user == current_user %>
+			            <div class="text-right">
+				            <%= link_to 'Edit', edit_photo_path(photo) %></td>
+				            <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+			            </div> <!-- text-right -->
+	            	<% end %>
+
+			    <% end %>
+			</div>	<!-- panel-default -->
+		</div> <!-- user-photos -->
+	</div> <!-- center -->
+

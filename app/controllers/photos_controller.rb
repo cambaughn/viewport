@@ -5,7 +5,9 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
       if user_signed_in?
-        @photos = Photo.where(user_id: current_user.followees(User).map(&:id))
+        @user_photos = Photo.where(user_id: current_user.id)
+        @followees_photos = Photo.where(user_id: current_user.followees(User).map(&:id))
+        @photos = @followees_photos || @user_photos
       end
 
       redirect_to home_path unless user_signed_in? 
