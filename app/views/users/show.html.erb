@@ -1,5 +1,5 @@
-<h1><%= @user.name %></h1>
-<div>
+<h1 class="text-center"><%= @user.name %></h1>
+<div class="center-block clearfix">
 	<% unless current_user == @user %>
 		<% if current_user.follows?(@user) == false %>
 			<%= link_to "Follow", user_follow_path(@user), method: :post, class: "btn btn-default btn-sm" %>
@@ -7,9 +7,16 @@
 			<%= link_to "Unfollow", user_unfollow_path(@user), method: :post, class: "btn btn-default btn-sm" %>
 		<% end %>
 	<% end %>
-
-	<% @user.photos.each do |photo| %>
-		<%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
-	    <h4><%= photo.caption %></h4>
-    <% end %>
+	<div></div>
+	<div id="user-photos", class="col-md-4">
+		<div class="panel panel-default">
+			<% @user.photos.each do |photo| %>
+				<%= link_to image_tag(photo.image.url), photo, class: "img-responsive wide_img" %>
+				<div class="panel-body">
+			    	<h4><%= photo.caption %></h4>
+			    	<p>Posted <%= time_ago_in_words(photo.created_at) %> ago</p>
+				</div>
+		    <% end %>
+		</div>
+	</div>
 </div>

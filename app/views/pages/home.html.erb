@@ -1,14 +1,12 @@
 <%= render 'photos/index' if user_signed_in? %>
 
 
-<div class="jumbotron text-center">
-	<h1>Welcome to my app!</h1>
-	<% if user_signed_in? %>
-	
-	<% else %>
+<div class="jumbotron text-center vertical-center">
+	<h1>Welcome!</h1>
+	<h4>With Streamline, you can feature your most important photo of the moment and share it with your friends. Everytime you upload a new one, the old one goes away.</h4>
+	<br />
 		<p>
-			<%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-lg" %>
-			<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+			<%= link_to "Log In", new_user_session_path, class: "btn btn-default btn-lg" %>
+			<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
 		</p>
-	<% end %>
 

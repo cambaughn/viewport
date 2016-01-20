@@ -1,31 +1,32 @@
-<%= form_for @photo, html: { multipart: true } do |f| %>
-  <% if @photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
 
-      <ul>
-      <% @photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form_for @photo, html: { multipart: true } do |f| %>
+    <% if @photo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+        <ul>
+        <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="field form-group">
+        <%= f.label :image %><br>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :caption %><br>
+        <%= f.text_area :caption, class: "form-control" %>
+      </div>
+      <div class="actions form-group">
+        <%= f.submit "Post", class: "btn btn-primary btn-small" %>
+      </div>
+    </div> <!-- panel-body -->
+  </div> <!-- panel -->
   <% end %>
-
-<div class="panel panel-default">
-  <div class="panel-body">
-
-    <div class="field form-group">
-      <%= f.label :image %><br>
-      <%= f.file_field :image, class: "form-control" %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :caption %><br>
-      <%= f.text_field :caption, class: "form-control" %>
-    </div>
-    <div class="actions form-group">
-      <%= f.submit "Post", class: "btn btn-primary btn-small" %>
-    </div>
-  </div> <!-- panel-body -->
-</div> <!-- panel -->
-<% end %>

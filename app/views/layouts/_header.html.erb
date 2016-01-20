@@ -14,12 +14,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
-      <%= form_tag search_users_path, method: :get, class: "navbar-form pull-left", role: "search" do %>
-        
-          <%= text_field_tag :search, params[:search], class: "form-control" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-    
 
+      <% if user_signed_in? %>
+        <%= form_tag search_users_path, method: :get, class: "navbar-form pull-left", role: "search" do %>
+          
+            <%= text_field_tag :search, params[:search], class: "form-control" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      
+
+        <% end %>
       <% end %>
 
 
